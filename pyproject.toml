@@ -1,0 +1,6 @@
+[project]
+name = "trlc-sdk"
+version = "0.0.1"
+authors = [
+  { name="Jannik Grothusen", email="jannik@robot-learning.co" },
+]

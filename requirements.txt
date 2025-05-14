@@ -1,0 +1,6 @@
+requests
+numpy
+trimesh
+mediapy
+scipy
+opencv-python
