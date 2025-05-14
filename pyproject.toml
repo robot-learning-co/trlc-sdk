@@ -4,3 +4,11 @@ version = "0.0.1"
 authors = [
   { name="Jannik Grothusen", email="jannik@robot-learning.co" },
 ]
+dependencies = [
+  "requests",
+  "numpy",
+  "trimesh",
+  "mediapy",
+  "scipy",
+  "opencv-python",
+]
