@@ -11,4 +11,9 @@ dependencies = [
   "mediapy",
   "scipy",
   "opencv-python",
+  "PIL"
 ]
+
+[project.optional-dependencies]
+cameras = ["pyrealsense2"]
+
