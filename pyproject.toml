@@ -12,6 +12,8 @@ dependencies = [
   "scipy",
   "opencv-python",
   "pillow"
+  "supervision"
+  "pycocotools"
 ]
 
 [project.optional-dependencies]
