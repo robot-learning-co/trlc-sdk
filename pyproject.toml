@@ -11,7 +11,7 @@ dependencies = [
   "mediapy",
   "scipy",
   "opencv-python",
-  "PIL"
+  "pillow"
 ]
 
 [project.optional-dependencies]
