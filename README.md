@@ -24,4 +24,10 @@ by combining these two we can extract the pose of any object from a RGB-D image:
   <img src="./static/pose_estimation.png"  width="full">
 </picture>
 
-You can find examples for these endpoints and their combination in [examples/](examples/). Check out the 
+You can find examples for these endpoints and their combination in [examples/](examples/).
+
+### Creating your own 3D object mesh
+Follow the [documentation](https://docs.robot-learning.co/examples/pose_estimation#creating-a-3d-object-mesh) to create a 3D mesh from any object or CAD file:
+<picture>
+  <img src="./static/ar_capture.png"  width="full">
+</picture>
