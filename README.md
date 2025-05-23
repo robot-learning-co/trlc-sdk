@@ -13,7 +13,7 @@ pip install -e .
 ```
 
 ## Perception
-Currently the perception API provides to endpoints:
+Currently the perception API provides two endpoints:
 
 1. **Grounded Segmentation** using [Grounded-SAM-2](https://github.com/IDEA-Research/Grounded-SAM-2) and
 2. **6D Object Pose Estimation** using [FoundationPose](https://github.com/NVlabs/FoundationPose)
