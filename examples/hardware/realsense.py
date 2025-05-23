@@ -36,12 +36,11 @@ if not found_rgb:
     print("The demo requires Depth camera with Color sensor")
     exit(0)
 
-config.enable_stream(rs.stream.depth, 640, 480, rs.format.z16, 30)
+# config.enable_stream(rs.stream.depth, 640, 360, rs.format.z16, 30)
+# config.enable_stream(rs.stream.color, 640, 360, rs.format.bgr8, 30)
+config.enable_stream(rs.stream.depth, 1280, 720, rs.format.z16, 30)
+config.enable_stream(rs.stream.color, 1280, 720, rs.format.bgr8, 30)
 
-if device_product_line == "L500":
-    config.enable_stream(rs.stream.color, 960, 540, rs.format.bgr8, 30)
-else:
-    config.enable_stream(rs.stream.color, 640, 480, rs.format.bgr8, 30)
 
 # Start streaming
 profile = pipeline.start(config)
@@ -59,7 +58,8 @@ align = rs.align(align_to)
 
 # Get the absolute path to the subfolder
 script_dir = os.path.dirname(os.path.abspath(__file__))
-out_dir = os.path.join(script_dir, "out")
+parent_dir = os.path.dirname(script_dir)
+out_dir = os.path.join(parent_dir, "data", "scene")
 # Ensure output directory exists
 if not os.path.exists(out_dir):
     os.makedirs(out_dir)

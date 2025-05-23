@@ -1,10 +1,35 @@
-import cv2
+import supervision as sv
 import numpy as np
+import cv2
+def annotate_image(annotations, image):
+    class_names = [ann["class_name"] for ann in annotations]
+    confidences = [ann.get("confidence", ann.get("score", 1.0)) for ann in annotations]
+    input_boxes = np.asarray([ann["bbox"] for ann in annotations], dtype=float)
+    masks = np.stack([ann["segmentation"] for ann in annotations]).astype(bool)
 
-'''
-Taken from:
-https://github.com/NVlabs/FoundationPose/blob/main/Utils.py
-'''
+    CLASS_ID = {name: idx for idx, name in enumerate(sorted(set(class_names)))}
+    class_ids = np.array([CLASS_ID[name] for name in class_names], dtype=int)
+
+    labels = [
+        f"{cls} {conf:.2f}"
+        for cls, conf in zip(class_names, confidences)
+    ]
+
+    detections = sv.Detections(
+        xyxy=input_boxes,
+        mask=masks,
+        class_id=class_ids
+    )
+
+    box_annotator = sv.BoxAnnotator()
+    annotated_frame = box_annotator.annotate(scene=image.copy(), detections=detections)
+    label_annotator = sv.LabelAnnotator()
+    annotated_frame = label_annotator.annotate(scene=annotated_frame, detections=detections, labels=labels)
+    mask_annotator = sv.MaskAnnotator()
+    annotated_frame = mask_annotator.annotate(scene=annotated_frame, detections=detections)
+    
+    return annotated_frame
+
 
 def to_homo(pts):
   '''

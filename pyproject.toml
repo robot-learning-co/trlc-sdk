@@ -11,7 +11,9 @@ dependencies = [
   "mediapy",
   "scipy",
   "opencv-python",
-  "PIL"
+  "pillow"
+  "supervision"
+  "pycocotools"
 ]
 
 [project.optional-dependencies]
